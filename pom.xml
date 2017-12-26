@@ -9,6 +9,7 @@
   	<module>WeiXin-Concat</module>
   	<module>WeiXin-Subscribe</module>
   	<module>WeiXin-Program</module>
+  	<module>WeiXin-Payment</module>
   </modules>
 <dependencyManagement>
     <dependencies>
