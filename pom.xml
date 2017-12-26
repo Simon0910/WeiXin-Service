@@ -10,6 +10,7 @@
   	<module>WeiXin-Subscribe</module>
   	<module>WeiXin-Program</module>
   	<module>WeiXin-Payment</module>
+  	<module>WeiXin-Common</module>
   </modules>
 <dependencyManagement>
     <dependencies>
