@@ -8,7 +8,7 @@
   <modules>
   	<module>WeiXin-Concat</module>
   </modules>
-
+<dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -17,6 +17,7 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-    </dependencies>  
+    </dependencies>
+</dependencyManagement>
   
 </project>

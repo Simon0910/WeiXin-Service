@@ -68,7 +68,7 @@ public class LoginService extends BaseService{
 		HttpGet httpGet = new HttpGet("https://wx.qq.com");
 		setPublicHeader(httpGet);
 		CloseableHttpResponse resp = client.execute(httpGet);
-		String res = EntityUtils.toString(resp.getEntity()); 
+		EntityUtils.toString(resp.getEntity()); 
 	}
 	public String getLoginCode() throws Exception 
 	{
