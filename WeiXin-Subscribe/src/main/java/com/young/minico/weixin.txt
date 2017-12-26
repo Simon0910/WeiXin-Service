@@ -1,0 +1,161 @@
+获取二维码地址  GET
+Request:
+Accept:*/*
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh;q=0.9
+Connection:keep-alive
+Cookie:mm_lang=zh_CN
+Host:login.wx.qq.com
+Referer:https://wx.qq.com/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+
+https://login.wx.qq.com/jslogin?appid=wx782c26e4c19acffb&redirect_uri=https%3A%2F%2Fwx.qq.com%2Fcgi-bin%2Fmmwebwx-bin%2Fwebwxnewloginpage&fun=new&lang=zh_CN&_=1513043656413
+
+Response:
+window.QRLogin.code = 200; window.QRLogin.uuid = "4Y3KvY2PqQ==";
+
+
+获取二维码  GET
+Request:
+Accept:image/webp,image/apng,image/*,*/*;q=0.8
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh;q=0.9
+Connection:keep-alive
+Host:login.weixin.qq.com
+Referer:https://wx.qq.com/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+
+https://login.weixin.qq.com/qrcode/4Y3KvY2PqQ==
+
+
+获取头像
+https://res.wx.qq.com/a/wx_fed/webwx/res/static/css/5af37c4a880a95586cd41c5b251d5562@1x.png
+
+
+POST
+Accept:application/json, text/plain, */*
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh;q=0.9
+Connection:keep-alive
+Content-Length:99
+Content-Type:application/json;charset=UTF-8
+Cookie:pgv_pvi=8533041152; RK=GIcKP5rPFK; webwxuvid=d74c8e326a57f0022000e290df8e05a5e9cae33d1b4968b8163bf07b2e85ba113ba71230f9a3e5936bef1a27b26ef631; webwx_auth_ticket=CIsBEOL+heENGoABJk1f4DqUe7AjjHuqzpcFnynWOkfZ4MM9Fa7dTpU0mRUQnxoUDXUf4ag/zL1s09TDG8miFt48ZVgZVUM5CT3BzP2rpHnePRY/fMd8Br0/Nc92P4QqyEnJK8Ru2rAnMURklZ1PsYWAygKPQ0PNSwmH3TRcYsRmrRks7u0QIk2hDgk=; login_frequency=2; last_wxuin=904152460; ptcz=695932f09e450d914dd1656dd1f73244c3fec282ad844058393682fe11c3da7f; pt2gguin=o0844784008; wxuin=904152460; refreshTimes=1; mm_lang=zh_CN; MM_WX_NOTIFY_STATE=1; MM_WX_SOUND_STATE=1
+Host:wx.qq.com
+Origin:https://wx.qq.com
+Referer:https://wx.qq.com/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxstatreport?fun=new
+
+{"BaseRequest":{"Uin":"xuin=904152460","Sid":"","DeviceID":"e545251763819195"},"Count":0,"List":[]}
+
+
+
+
+网页登录请求
+GET
+https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxpushloginurl?uin=904152460
+
+Accept:application/json, text/javascript, */*; q=0.01
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh;q=0.9
+Connection:keep-alive
+Cookie:
+pgv_pvi=8533041152;
+RK=GIcKP5rPFK;
+webwxuvid=d74c8e326a57f0022000e290df8e05a5e9cae33d1b4968b8163bf07b2e85ba113ba71230f9a3e5936bef1a27b26ef631; 
+webwx_auth_ticket=CIsBEOL+heENGoABJk1f4DqUe7AjjHuqzpcFnynWOkfZ4MM9Fa7dTpU0mRUQnxoUDXUf4ag/zL1s09TDG8miFt48ZVgZVUM5CT3BzP2rpHnePRY/fMd8Br0/Nc92P4QqyEnJK8Ru2rAnMURklZ1PsYWAygKPQ0PNSwmH3TRcYsRmrRks7u0QIk2hDgk=;
+login_frequency=2;
+last_wxuin=904152460;
+ptcz=695932f09e450d914dd1656dd1f73244c3fec282ad844058393682fe11c3da7f; 
+pt2gguin=o0844784008; 
+wxuin=904152460;
+mm_lang=zh_CN;
+MM_WX_NOTIFY_STATE=1;
+MM_WX_SOUND_STATE=1
+
+Host:wx.qq.com
+Referer:https://wx.qq.com/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+X-Requested-With:XMLHttpRequest
+
+
+https://support.weixin.qq.com/cgi-bin/mmsupport-bin/reportforweb?
+rid=69373&rkey=6&rvalue=1
+:authority:support.weixin.qq.com
+:method:GET
+:path:/cgi-bin/mmsupport-bin/reportforweb?rid=69373&rkey=6&rvalue=1
+:scheme:https
+accept:image/webp,image/apng,image/*,*/*;q=0.8
+accept-encoding:gzip, deflate, br
+accept-language:zh-CN,zh;q=0.9
+cookie:pgv_pvi=8533041152; RK=GIcKP5rPFK; ptcz=695932f09e450d914dd1656dd1f73244c3fec282ad844058393682fe11c3da7f; pt2gguin=o0844784008
+referer:https://wx.qq.com/
+user-agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+
+
+登录回调地址
+Accept:*/*
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh;q=0.9
+Connection:keep-alive
+Cookie:
+pgv_pvi=8533041152; 
+RK=GIcKP5rPFK; 
+webwxuvid=d74c8e326a57f0022000e290df8e05a5e9cae33d1b4968b8163bf07b2e85ba113ba71230f9a3e5936bef1a27b26ef631;
+webwx_auth_ticket=CIsBEOL+heENGoABJk1f4DqUe7AjjHuqzpcFnynWOkfZ4MM9Fa7dTpU0mRUQnxoUDXUf4ag/zL1s09TDG8miFt48ZVgZVUM5CT3BzP2rpHnePRY/fMd8Br0/Nc92P4QqyEnJK8Ru2rAnMURklZ1PsYWAygKPQ0PNSwmH3TRcYsRmrRks7u0QIk2hDgk=;
+ptcz=695932f09e450d914dd1656dd1f73244c3fec282ad844058393682fe11c3da7f;
+pt2gguin=o0844784008; 
+wxuin=904152460;
+mm_lang=zh_CN
+Host:login.wx.qq.com
+Referer:https://wx.qq.com/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+
+https://login.wx.qq.com/cgi-bin/mmwebwx-bin/login?
+loginicon=true&uuid=4dccXeFKRA==&tip=1&r=-1304778079&_=1513133233694
+
+
+https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=-1329756078
+Accept:application/json, text/plain, */*
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh;q=0.9
+Connection:keep-alive
+Content-Length:105
+Content-Type:application/json;charset=UTF-8
+Cookie:pgv_pvi=8533041152; RK=GIcKP5rPFK; webwxuvid=d74c8e326a57f0022000e290df8e05a5e9cae33d1b4968b8163bf07b2e85ba113ba71230f9a3e5936bef1a27b26ef631; ptcz=695932f09e450d914dd1656dd1f73244c3fec282ad844058393682fe11c3da7f; pt2gguin=o0844784008; refreshTimes=2; webwx_auth_ticket=CIsBEPn87e8HGoABk/RpO22KsvpQNlFPOicERinWOkfZ4MM9Fa7dTpU0mRUQnxoUDXUf4ag/zL1s09TDG8miFt48ZVgZVUM5CT3BzP2rpHnePRY/fMd8Br0/Nc92P4QqyEnJK8Ru2rAnMURklZ1PsYWAygKPQ0PNSwmH3TRcYsRmrRks7u0QIk2hDgk=; login_frequency=5; last_wxuin=904152460; wxloadtime=1513158091_expired; wxpluginkey=1513154976; wxuin=904152460; wxsid=zhC6u39dpOKVMD7M; webwx_data_ticket=gSeSghqLlEVwqlvv1yqSp2pW; mm_lang=zh_CN; MM_WX_NOTIFY_STATE=1; MM_WX_SOUND_STATE=1
+Host:wx.qq.com
+Origin:https://wx.qq.com
+Referer:https://wx.qq.com/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+{"BaseRequest":{"Uin":"xuin=904152460","Sid":"zhC6u39dpOKVMD7M","Skey":"","DeviceID":"e853763877058858"}}
+{
+"BaseResponse": {}, 
+    "Count": 11, 
+    "ContactList": [], 
+    "SyncKey": {}, 
+    "User": {}, 
+    "ChatSet": ""
+    "SKey": "@crypt_cd188f5a_bd07b93e496a2f8d5fe9bc650653b157", 
+    "ClientVersion": 369432352, 
+    "SystemTime": 1513155866, 
+    "GrayScale": 1, 
+    "InviteStartCount": 40, 
+    "MPSubscribeMsgCount": 4, 
+    "MPSubscribeMsgList": [], 
+    "ClickReportInterval": 600000
+}
+https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsendmsg?pass_ticket=JVJEQqEgGdHwWZuQjb1s8juMrjvrAflWk82cZhDoncqLL582%252F4eUBx5yK1aTXt1s
+POST
+Accept:application/json, text/plain, */*
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh;q=0.9
+Connection:keep-alive
+Content-Length:360
+Content-Type:application/json;charset=UTF-8
+Cookie:pgv_pvi=8533041152; RK=GIcKP5rPFK; webwxuvid=d74c8e326a57f0022000e290df8e05a5e9cae33d1b4968b8163bf07b2e85ba113ba71230f9a3e5936bef1a27b26ef631; ptcz=695932f09e450d914dd1656dd1f73244c3fec282ad844058393682fe11c3da7f; pt2gguin=o0844784008; refreshTimes=2; MM_WX_NOTIFY_STATE=1; MM_WX_SOUND_STATE=1; mm_lang=zh_CN; webwx_auth_ticket=CIsBEMD/jY0BGoABH/Zi0h17vWbe3bBIqngDCinWOkfZ4MM9Fa7dTpU0mRUQnxoUDXUf4ag/zL1s09TDG8miFt48ZVgZVUM5CT3BzP2rpHnePRY/fMd8Br0/Nc92P4QqyEnJK8Ru2rAnMURklZ1PsYWAygKPQ0PNSwmH3TRcYsRmrRks7u0QIk2hDgk=; login_frequency=3; last_wxuin=904152460; wxloadtime=1513153139_expired; wxpluginkey=1513125842; wxuin=904152460; wxsid=k09i42K85ZSZoL+y; webwx_data_ticket=gScgF7zLBaZ58oYGefoyZ7O1
+Host:wx.qq.com
+Origin:https://wx.qq.com
+Referer:https://wx.qq.com/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36
+
+{"BaseRequest":{"Uin":904152460,"Sid":"k09i42K85ZSZoL+y","Skey":"@crypt_cd188f5a_5ebcc287e1c49f26edc3156e12da3acd","DeviceID":"e192464458232262"},"Msg":{"Type":1,"Content":"x","FromUserName":"@da12a172423c4df17e3c71f815cacb8fc49872ab4df3eb6f652a7e6bfb95e74a","ToUserName":"filehelper","LocalID":"15131533158820189","ClientMsgId":"15131533158820189"},"Scene":0}
