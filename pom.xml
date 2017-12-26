@@ -8,6 +8,7 @@
   <modules>
   	<module>WeiXin-Concat</module>
   	<module>WeiXin-Subscribe</module>
+  	<module>WeiXin-Program</module>
   </modules>
 <dependencyManagement>
     <dependencies>
