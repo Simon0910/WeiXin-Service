@@ -1,4 +1,4 @@
-package com.young.minico.program.service;
+package com.young.minico.subscribe.service;
 
 public class MessageManagerService {
 

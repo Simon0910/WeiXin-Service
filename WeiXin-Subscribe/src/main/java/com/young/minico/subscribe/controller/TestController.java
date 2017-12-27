@@ -1,4 +1,4 @@
-package com.young.minico.controller;
+package com.young.minico.subscribe.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
