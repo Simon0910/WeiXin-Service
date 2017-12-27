@@ -22,7 +22,7 @@ import com.young.weixin.concat.bean.request.InitRequest;
 import com.young.weixin.concat.bean.request.SendMsgRequest;
 import com.young.weixin.concat.bean.response.InitResponse;
 import com.young.weixin.concat.bean.response.TicketResponse;
-import com.young.weixin.concat.filter.LoginService;
+import com.young.weixin.concat.service.LoginService;
 
 //import net.sf.json.JSONObject;
 

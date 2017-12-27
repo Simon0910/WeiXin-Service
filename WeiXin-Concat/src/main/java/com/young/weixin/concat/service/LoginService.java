@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.young.weixin.concat.filter;
+package com.young.weixin.concat.service;
 
 import static com.young.weixin.concat.service.BaseService.cookieStore;
 
@@ -42,7 +42,6 @@ import com.young.weixin.concat.bean.request.InitRequest;
 import com.young.weixin.concat.bean.request.SendMsgRequest;
 import com.young.weixin.concat.bean.response.ConcatResponse;
 import com.young.weixin.concat.bean.response.TicketResponse;
-import com.young.weixin.concat.service.BaseService;
 
 /**
  * @Name LoginService
