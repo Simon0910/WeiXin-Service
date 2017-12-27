@@ -1,4 +1,4 @@
-package com.young.weixin.subscribe.service.impl;
+package com.young.weixin.subscribe.serviceimpl;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
