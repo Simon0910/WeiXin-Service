@@ -7,4 +7,11 @@
   </parent>
   <artifactId>WeiXin-Subscribe</artifactId>
   <build/>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.young.weixin</groupId>
+  		<artifactId>WeiXin-Common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+  </dependencies>
 </project>

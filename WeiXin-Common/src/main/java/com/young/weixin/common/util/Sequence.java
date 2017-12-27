@@ -6,8 +6,8 @@ import java.util.List;
 public class Sequence {
 	private static List<String> ls = new ArrayList<String>();
 	private static String timestamp;
-	public static String getPK() throws Exception {
-		String lo = getpk();
+	public static String getPK() {
+		String lo = (String.valueOf(Math.random())).substring(2, 9);
 		if(!timestamp.equals(getCurDateTime())){
 			ls.clear(); 
 		}
@@ -20,17 +20,13 @@ public class Sequence {
 		}
 		return lo;
 	}
-	private static String getpk() {
-		String d = (String.valueOf(Math.random())).substring(2, 9);
-		return d;
-	}
 	
-    public static String getCurDateTime() throws Exception {
+    public static String getCurDateTime()  {
     	timestamp=String.valueOf(System.currentTimeMillis());
         return timestamp;
     }
 
-	public synchronized static String getFlow() throws Exception {
+	public synchronized static String getFlow(){
 		StringBuilder sb = new StringBuilder();
 		sb.append(getCurDateTime());
 		String str=getPK();
@@ -38,4 +34,6 @@ public class Sequence {
 		sb.append(str);
 		return sb.toString();
 	}
+	
+	
 }

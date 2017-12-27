@@ -10,7 +10,7 @@ public class TestController {
 
 	Logger logger = LoggerFactory.getLogger(TestController.class);
 	@RequestMapping("test")
-	public String test()
+	public String test() 
 	{
 		logger.info("testddddddddddddddddddddd");
 		return "ok";

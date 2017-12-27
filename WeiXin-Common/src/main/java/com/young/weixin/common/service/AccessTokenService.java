@@ -1,8 +1,5 @@
 package com.young.weixin.common.service;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class AccessTokenService {
 	public void getAccessToken()
 	{

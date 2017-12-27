@@ -1,5 +1,5 @@
 package com.young.weixin.subscribe.service;
 
-public class SweepService {
+public interface SweepService {
 
 }
