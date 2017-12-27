@@ -1,4 +1,4 @@
-package com.young.minico;
+package com.young.weixin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.young.minico.subscribe.service;
+package com.young.weixin.subscribe.service;
 
 public class SourceMaterialService {
 	//¡Ÿ ±
