@@ -1,4 +1,4 @@
-package com.young.weixin.subscribe.pojo;
+package com.young.weixin.subscribe.pojo.menu;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -167,5 +167,30 @@ public class CustomMenuEventPojo implements Serializable {
 		}  
         return str.toString(); 
 	}
-	
+	public enum EventType
+	{
+		CLICK("CLICK","点击菜单拉取消息时的事件推送"),
+		VIEW("VIEW","点击菜单跳转链接时的事件推送"),
+		SCANCODE_PUSH("scancode_push","扫码推事件的事件推送"),
+		SCANCODE_WAITMSG("scancode_waitmsg","扫码推事件且弹出“消息接收中”提示框的事件推送"),
+		PIC_SYSPHOTO("pic_sysphoto","弹出系统拍照发图的事件推送"),
+		PIC_PHOTO_OR_ALBUM("pic_photo_or_album","弹出拍照或者相册发图的事件推送"),
+		PIC_WEIXIN("pic_weixin","弹出微信相册发图器的事件推送"),
+		LOCATION_SELECT("location_select","弹出地理位置选择器的事件推送");
+		
+		private String event;
+		private String desc;
+		EventType(String event,String desc)
+		{
+			this.event = event;
+			this.desc = desc;
+		}
+		public String getEvent() {
+			return event;
+		}
+		public String getDesc() {
+			return desc;
+		}
+	}
 }
+

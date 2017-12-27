@@ -1,6 +1,6 @@
-package com.young.weixin.subscribe.pojo;
+package com.young.weixin.subscribe.pojo.menu;
 
-public class CustomMenuPojo {
+public class CustomMenuRespPojo {
 	private String name ;
 	private String type ;
 	private String sub_button ;

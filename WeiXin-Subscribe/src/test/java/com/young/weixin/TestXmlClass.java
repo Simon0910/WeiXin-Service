@@ -1,8 +1,5 @@
 package com.young.weixin;
 
-import com.young.weixin.common.util.XMLUtil;
-import com.young.weixin.subscribe.pojo.CustomMenuEventPojo;
-
 public class TestXmlClass {
 	private static String xmlString = 
 			"<xml>"
@@ -15,7 +12,5 @@ public class TestXmlClass {
 			+ "</xml>";
 	
 	public static void main(String[] args) {
-		CustomMenuEventPojo pojo = XMLUtil.convertXmlStrToObject(CustomMenuEventPojo.class, xmlString);
-		System.out.println(pojo);
 	}
 }

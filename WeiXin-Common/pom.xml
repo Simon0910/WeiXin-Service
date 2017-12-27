@@ -7,4 +7,12 @@
   </parent>
   <artifactId>WeiXin-Common</artifactId>
   <build/>
+  <dependencies>
+  <dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.9</version>
+</dependency>
+  
+  </dependencies>
 </project>

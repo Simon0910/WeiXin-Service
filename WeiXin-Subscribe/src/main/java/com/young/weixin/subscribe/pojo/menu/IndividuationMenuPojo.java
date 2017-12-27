@@ -1,4 +1,4 @@
-package com.young.weixin.subscribe.pojo;
+package com.young.weixin.subscribe.pojo.menu;
 
 public class IndividuationMenuPojo extends CustomMenuPojo {
 	private String matchrule ;
