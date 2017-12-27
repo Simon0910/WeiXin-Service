@@ -1,4 +1,4 @@
-package com.young.minico.common.service;
+package com.young.weixin.common.service;
 
 //@Service
 public class AccessTokenService {

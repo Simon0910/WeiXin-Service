@@ -1,4 +1,4 @@
-package com.young.minico.common.pojo;
+package com.young.weixin.common.pojo;
 
 public class RetException {
 

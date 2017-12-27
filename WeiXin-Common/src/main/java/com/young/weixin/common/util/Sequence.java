@@ -1,4 +1,4 @@
-package com.young.minico.common.util;
+package com.young.weixin.common.util;
 
 import java.util.ArrayList;
 import java.util.List;
