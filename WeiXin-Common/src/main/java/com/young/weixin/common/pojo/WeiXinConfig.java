@@ -1,7 +1,10 @@
 package com.young.weixin.common.pojo;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(value="weixin.config")
 public class WeiXinConfig {
-	private String grantType = "client_credential";
+	private String grantType ;
 	private String appID ;
 	private String secret ;
 	public String getGrantType() {

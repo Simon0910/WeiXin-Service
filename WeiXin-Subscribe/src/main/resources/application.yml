@@ -4,3 +4,8 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+weixin: 
+  config: 
+    APPID: 
+    SECRET: 
+    GRANT_TYPE:  client_credential
