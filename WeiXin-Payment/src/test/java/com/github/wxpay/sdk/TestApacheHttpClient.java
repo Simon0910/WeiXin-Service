@@ -1,5 +1,8 @@
 package com.github.wxpay.sdk;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -9,14 +12,10 @@ import org.apache.http.conn.DnsResolver;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.BasicHttpClientConnectionManager;
 import org.apache.http.impl.conn.SystemDefaultDnsResolver;
 import org.apache.http.util.EntityUtils;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 /**
  * Created by ariesun on 2017/4/19.
@@ -28,7 +27,7 @@ public class TestApacheHttpClient {
         DnsResolver dnsResolver = new SystemDefaultDnsResolver() {
             @Override
             public InetAddress[] resolve(final String host) throws UnknownHostException {
-                if (host.equalsIgnoreCase("github.comm")) {
+                if (host.equalsIgnoreCase("ww.baidu.com")) {
                     return new InetAddress[] { InetAddress.getByName("127.0.0.1") };
                 } else {
                     return super.resolve(host);
@@ -51,7 +50,7 @@ public class TestApacheHttpClient {
                 .build();
 
         /* Should hit 127.0.0.1, regardless of DNS */
-        HttpGet httpRequest = new HttpGet("https://github-341sf.com");
+        HttpGet httpRequest = new HttpGet("https://baidu.com");
 
         try {
             //使用DefaultHttpClient类的execute方法发送HTTP GET请求，并返回HttpResponse对象。
