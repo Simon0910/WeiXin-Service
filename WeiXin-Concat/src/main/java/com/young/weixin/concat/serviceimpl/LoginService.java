@@ -167,7 +167,28 @@ public class LoginService {
 
 	public String getWebwxInit(InitRequest initRequest) throws Exception {
 		System.out.println(initRequest);
+
 		String url = "https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit" ;
+		HTTPRequest req = setPublicHeader(new HTTPRequest(HTTPMethod.POST, url))
+				.addQueryParameter("r", "-1516162729")
+				.setBody(initRequest.toString())
+				.setConnectionTimeout(60 * 1000)
+				.setRequestTimeout(60 * 10000);
+		String pass_ticket = cookieMap.get("pass_ticket");
+		if ( pass_ticket != null && !pass_ticket.isEmpty())
+			req.addQueryParameter("pass_ticket", pass_ticket);
+		try {
+			return client.fetch(req).body;
+		} catch (URISyntaxException e) {
+			throw new RuntimeException("API url has been modified, current url: " + url);
+		}	
+	}
+
+	public String getWebwx2Init(InitRequest initRequest) throws Exception {
+		System.out.println(initRequest);
+
+		   //请求 URL: https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=1305844026
+		String url = "https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxinit" ;
 		HTTPRequest req = setPublicHeader(new HTTPRequest(HTTPMethod.POST, url))
 				.addQueryParameter("r", "-1516162729")
 				.setBody(initRequest.toString())
