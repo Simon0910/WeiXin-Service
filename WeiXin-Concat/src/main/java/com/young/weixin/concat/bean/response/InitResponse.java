@@ -29,7 +29,7 @@ public class InitResponse {
 	private BaseResponse BaseResponse;
 	private Integer Count;
 	private List<Concat> ContactList;
-	private Integer SyncKey; 
+	private String  SyncKey; 
 	private UserInfo User;
 	private String  ChatSet;
 	private String  SKey; 
@@ -49,9 +49,8 @@ public class InitResponse {
 	public InitResponse(JSONObject initObject) throws JSONException{
 		setBaseResponse       (new BaseResponse((JSONObject)initObject.get("BaseResponse")));
 		setCount              (initObject.getInt   ("Count"              ));
-		setContactList        (Concat.concatList((JSONArray)initObject.get("ContactList"        ))
-);
-		setSyncKey            (initObject.getInt   ("SyncKey"            ));
+		setContactList        (Concat.concatList((JSONArray)initObject.get("ContactList"        )));
+		setSyncKey            (initObject.getString   ("SyncKey"            ));
 		setUser               (new UserInfo((JSONObject)initObject.get("User")));
 		setChatSet            (initObject.getString("ChatSet"            ));
 		setSKey               (initObject.getString("SKey"               ));
@@ -81,10 +80,10 @@ public class InitResponse {
 	public void setContactList(List<Concat> contactList) {
 		ContactList = contactList;
 	}
-	public Integer getSyncKey() {
+	public String getSyncKey() {
 		return SyncKey;
 	}
-	public void setSyncKey(Integer syncKey) {
+	public void setSyncKey(String syncKey) {
 		SyncKey = syncKey;
 	}
 	public UserInfo getUser() {

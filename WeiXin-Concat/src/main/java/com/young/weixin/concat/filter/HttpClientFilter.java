@@ -28,12 +28,11 @@ import org.apache.http.impl.client.HttpClients;
  */
 public class HttpClientFilter implements Filter {
 
-	@Override
+	
 	public void init(FilterConfig filterConfig) throws ServletException {
 		
 	}
-
-	@Override
+	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest req =(HttpServletRequest) request;
@@ -45,7 +44,6 @@ public class HttpClientFilter implements Filter {
         chain.doFilter(request, response);
 	}
 
-	@Override
 	public void destroy() {
 	}
 	

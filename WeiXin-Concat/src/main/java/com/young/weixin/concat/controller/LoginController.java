@@ -4,7 +4,6 @@
 package com.young.weixin.concat.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,14 +14,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.young.weixin.concat.bean.Concat;
-import com.young.weixin.concat.bean.Message;
 import com.young.weixin.concat.bean.request.BaseRequest;
 import com.young.weixin.concat.bean.request.InitRequest;
-import com.young.weixin.concat.bean.request.SendMsgRequest;
 import com.young.weixin.concat.bean.response.InitResponse;
 import com.young.weixin.concat.bean.response.TicketResponse;
-import com.young.weixin.concat.service.LoginService;
+import com.young.weixin.concat.serviceimpl.LoginService;
 
 //import net.sf.json.JSONObject;
 
@@ -59,10 +55,10 @@ public class LoginController {
 		loginService.getIndex();
 		System.out.println(ticketResp);
 		BaseRequest baseRequest = new BaseRequest();
-		baseRequest.setDeviceID(loginService.getCookieValue("deviceID"));
-		baseRequest.setSid(loginService.getCookieValue("wxsid"));
-		baseRequest.setUin(loginService.getCookieValue("wxuin"));
-		baseRequest.setSkey(loginService.getCookieValue("skey"));
+		baseRequest.setDeviceID(loginService.getCookie("deviceID"));
+		baseRequest.setSid(loginService.getCookie("wxsid"));
+		baseRequest.setUin(loginService.getCookie("wxuin"));
+		baseRequest.setSkey(loginService.getCookie("skey"));
 //		{Uin: "xuin=904152460", Sid: "BLDwLSzy7U6N61QB", Skey: "", DeviceID: "e724272063629085"}
 //		System.out.println(JSONObject.fromObject(baseRequest));
 		InitResponse initResp =null;
@@ -73,7 +69,7 @@ public class LoginController {
 			initResp = new InitResponse(initRespStr);
 		
 		System.out.println(initResp.toString());
-		return "";
+		return initResp.toString();
     }
 	@RequestMapping(value = "/init")
     @ResponseBody
@@ -84,16 +80,16 @@ public class LoginController {
     @ResponseBody
     public void getWebwxInit(HttpServletRequest request,HttpSession session) throws Exception {
 		loginService.getIndex();
-
 		BaseRequest baseRequest = new BaseRequest();
-		baseRequest.setDeviceID(loginService.getCookieValue("deviceID"));
-		baseRequest.setSid(loginService.getCookieValue("wxsid"));
-		baseRequest.setUin(loginService.getCookieValue("wxuin"));
-		baseRequest.setSkey(loginService.getCookieValue("skey"));
+		baseRequest.setDeviceID(loginService.getCookie("deviceID"));
+		baseRequest.setSid(loginService.getCookie("wxsid"));
+		baseRequest.setUin(loginService.getCookie("wxuin"));
+		baseRequest.setSkey(loginService.getCookie("skey"));
 //		{Uin: "xuin=904152460", Sid: "BLDwLSzy7U6N61QB", Skey: "", DeviceID: "e724272063629085"}
-//		System.out.println(JSONObject.fromObject(baseRequest));
+		System.out.println(new InitRequest(baseRequest));
 		InitResponse initResp =null;
 		String initRespStr =loginService.getWebwxInit(new InitRequest(baseRequest));
+		System.out.println(initRespStr);
 		if(initRespStr==null || initRespStr.isEmpty())
 			initResp = new InitResponse();
 		else
@@ -105,25 +101,26 @@ public class LoginController {
     @ResponseBody
     public String concat(HttpServletRequest request,HttpSession session) throws Exception {
 //		loginService.getIndex();
-		List<Concat> cs = loginService.getConcats();
-		System.out.println(cs.size());
-		return cs.toString();
+//		List<Concat> cs = loginService.getConcats();
+//		System.out.println(cs.size());
+//		return cs.toString();
+		return null;
 	}
 	@RequestMapping(value = "/sendMsg")
     @ResponseBody
     public String sendMsg(HttpServletRequest request,HttpSession session) throws Exception {
 		BaseRequest baseRequest = new BaseRequest();
-		baseRequest.setDeviceID(loginService.getCookieValue("deviceID"));
-		baseRequest.setSid(loginService.getCookieValue("wxsid"));
-		baseRequest.setUin(loginService.getCookieValue("wxuin"));
-		baseRequest.setSkey(loginService.getCookieValue("skey"));
+		baseRequest.setDeviceID(loginService.cookieMap.get("deviceID"));
+		baseRequest.setSid(loginService.cookieMap.get("wxsid"));
+		baseRequest.setUin(loginService.cookieMap.get("wxuin"));
+		baseRequest.setSkey(loginService.cookieMap.get("skey"));
 //
 //		InitResponse initResp = loginService.getWebwxInit(new InitRequest(baseRequest));
 		
-		List<Concat> concats = loginService.getConcats();
-		for(int i = 0 ; i<concats.size();i++){
-			Concat concat = concats.get(i);
-			Message msg = new Message();
+//		List<Concat> concats = loginService.getConcats();
+//		for(int i = 0 ; i<concats.size();i++){
+//			Concat concat = concats.get(i);
+//			Message msg = new Message();
 //			{
 //			    "BaseRequest": {
 //			        "Uin": 904152460,
@@ -160,19 +157,19 @@ public class LoginController {
     "Scene": 0
 }
 			 */
-			String clientMsgId = String.valueOf(System.currentTimeMillis()) + String.valueOf((int)((Math.random()*9+1)*1000));
-			msg.setType(1);
-			msg.setContent("TEST MSG");
-			msg.setFromUserName(loginService.getCookieValue("fromUserName"));
-			msg.setToUserName(concat.getUserName());
-			msg.setClientMsgId(clientMsgId);
-			msg.setLocalID(clientMsgId);
-			SendMsgRequest sendMsg = new SendMsgRequest();
-			sendMsg.setBaseRequest(baseRequest);
-			sendMsg.setMsg(msg);
-			sendMsg.setScene(0);
-			loginService.sendMsg(sendMsg);
-		}
+//			String clientMsgId = String.valueOf(System.currentTimeMillis()) + String.valueOf((int)((Math.random()*9+1)*1000));
+//			msg.setType(1);
+//			msg.setContent("TEST MSG");
+//			msg.setFromUserName(loginService.getCookieValue("fromUserName"));
+//			msg.setToUserName(concat.getUserName());
+//			msg.setClientMsgId(clientMsgId);
+//			msg.setLocalID(clientMsgId);
+//			SendMsgRequest sendMsg = new SendMsgRequest();
+//			sendMsg.setBaseRequest(baseRequest);
+//			sendMsg.setMsg(msg);
+//			sendMsg.setScene(0);
+//			loginService.sendMsg(sendMsg);
+//		}
 		return null;
 	}
 	

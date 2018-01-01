@@ -3,7 +3,6 @@
  */
 package com.young.weixin.concat.service;
 
-import static com.young.weixin.concat.service.BaseService.cookieStore;
 
 import java.io.IOException;
 import java.net.URI;
@@ -34,7 +33,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import com.beust.jcommander.internal.Lists;
 import com.young.weixin.concat.bean.Concat;
@@ -53,7 +51,6 @@ import com.young.weixin.concat.bean.response.TicketResponse;
  * @Copyright: 2017 www.ruiqi.cd Inc. All rights reserved. 
  * 注意：本内容仅限于成都瑞骐金服集团内部传阅，禁止外泄以及用于其他的商业目
  */
-@Service
 public class LoginService extends BaseService{
 	public void setPublicHeader(HttpRequestBase method)
 	{	

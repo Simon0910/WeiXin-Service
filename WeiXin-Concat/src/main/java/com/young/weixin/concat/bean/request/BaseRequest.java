@@ -3,6 +3,9 @@
  */
 package com.young.weixin.concat.bean.request;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * @Name BaseRequest
  * @Description 
@@ -45,5 +48,20 @@ public class BaseRequest {
 	}
 	public void setDeviceID(String deviceID) {
 		DeviceID = deviceID;
+	}
+
+	@Override
+	public String toString() {
+        JSONObject body = new JSONObject();
+        try {
+			body.put("Uin", Uin);
+			body.put("Sid", Sid);
+			body.put("Skey", Skey);
+			body.put("DeviceID", DeviceID);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return body.toString();
 	}
 }

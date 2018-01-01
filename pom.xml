@@ -1,41 +1,45 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.young.weixin</groupId>
-  <artifactId>WeiXin-Parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <build/>
-  <modules>
-  	<module>WeiXin-Concat</module>
-  	<module>WeiXin-Subscribe</module>
-  	<module>WeiXin-Program</module>
-  	<module>WeiXin-Payment</module>
-  	<module>WeiXin-Common</module>
-  	<module>WeiXin-Service</module>
-  </modules>
-  
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>1.5.9.RELEASE</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-    <dependencies>
-  		
-  	<dependency>
-  		<groupId>org.springframework.boot</groupId>
-  		<artifactId>spring-boot-configuration-processor</artifactId>
-  		<optional>true</optional>
-  	</dependency>	
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.young.weixin</groupId>
+	<artifactId>WeiXin-Parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<build>
+	</build>
+	<modules>
+		<module>WeiXin-Concat</module>
+		<module>WeiXin-Subscribe</module>
+		<module>WeiXin-Program</module>
+		<module>WeiXin-Payment</module>
+		<module>WeiXin-Common</module>
+		<module>WeiXin-Service</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>1.5.9.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -50,35 +54,36 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-    <dependency>
-   		<groupId>com.fasterxml.jackson.dataformat</groupId>
-   		<artifactId>jackson-dataformat-xml</artifactId>
-	</dependency>
-    <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpasyncclient</artifactId>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
-	<dependency>
-    	<groupId>com.google.zxing</groupId>
-    	<artifactId>core</artifactId>
-    	<version>3.3.1</version>
-	</dependency>
-	<dependency>
-    	<groupId>com.google.zxing</groupId>
-    	<artifactId>javase</artifactId>
-    	<version>3.3.1</version>
-	</dependency>
-	<dependency>
-    	<groupId>com.google.zxing</groupId>
-    	<artifactId>zxing-parent</artifactId>
-    	<version>3.3.1</version>
-    	<type>pom</type>
-	</dependency>  
-  </dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpasyncclient</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>zxing-parent</artifactId>
+			<version>3.3.1</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
 </project>

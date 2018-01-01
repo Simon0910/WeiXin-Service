@@ -12,32 +12,29 @@ public class CustomMenuServiceImpl implements CustomMenuService {
 	public static final String INDIVIDUATION_MENU_TRY_MATCH = "https://api.weixin.qq.com/cgi-bin/menu/trymatch";
 	public static final String INDIVIDUATION_MENU_DELETE = "https://api.weixin.qq.com/cgi-bin/menu/delconditional";
 
-	@Override
 	public void customMenuCreate(CustomMenuPojo pojo) 
 	{
 	}
-	@Override
+	
 	public void customMenuQuery() 
 	{
 	}
-	@Override
+	
 	public void customMenuDelete(String menuId) {
 		
 	}
-	@Override
+	
 	public void customMenuCurrent() {
 		
 	}
 
-	@Override
+	
 	public void individuationMenuCreate(IndividuationMenuPojo pojo) 
 	{
 	}
-	@Override
 	public void individuationMenuTryMatch(String user_id) 
 	{
 	}
-	@Override
 	public void individuationMenuDelete(String menuId) 
 	{
 	}

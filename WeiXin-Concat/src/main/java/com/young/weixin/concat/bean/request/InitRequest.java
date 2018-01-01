@@ -6,6 +6,9 @@ package com.young.weixin.concat.bean.request;
 import java.io.IOException;
 import java.io.StringWriter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class InitRequest {
@@ -26,12 +29,13 @@ public class InitRequest {
 	}
 	@Override
 	public String toString() {
-		StringWriter str = new StringWriter();  
-        ObjectMapper mapper = new ObjectMapper();  
+        JSONObject body = new JSONObject();
         try {
-			mapper.writeValue(str, this);
-		} catch (IOException e) {
-		}  
-        return str.toString();
+			body.put("BaseRequest", BaseRequest.toString());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return body.toString();
 	}
 }

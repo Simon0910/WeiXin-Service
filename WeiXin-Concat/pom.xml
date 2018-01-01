@@ -6,4 +6,11 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>WeiXin-Concat</artifactId>
+  <dependencies>
+  	<dependency>
+    <groupId>com.young.weixin</groupId>
+    <artifactId>WeiXin-Common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
