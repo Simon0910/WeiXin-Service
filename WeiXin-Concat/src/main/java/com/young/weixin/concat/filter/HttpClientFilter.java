@@ -13,8 +13,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import com.young.weixin.common.httpclient.DefaultHTTPClient;
+import com.young.weixin.common.httpclient.HTTPClient;
 
 /**
  * @Name HttpClientFilter
@@ -36,9 +36,9 @@ public class HttpClientFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest req =(HttpServletRequest) request;
-		CloseableHttpClient client = (CloseableHttpClient)req.getSession().getAttribute("WX_HTTP_CLIENT");//判断用户是否登录
+		HTTPClient client = (HTTPClient)req.getSession().getAttribute("WX_HTTP_CLIENT");//判断用户是否登录
         if (client == null) {
-        	client = HttpClients.createDefault();;
+        	client = new DefaultHTTPClient();;
         	req.getSession().setAttribute("WX_HTTP_CLIENT",client);
         }
         chain.doFilter(request, response);

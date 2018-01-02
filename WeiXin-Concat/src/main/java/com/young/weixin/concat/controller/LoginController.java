@@ -54,15 +54,11 @@ public class LoginController {
 	public String test(HttpServletRequest request, HttpSession session) throws Exception {
 		TicketResponse ticketResp = loginService.webwxnewloginpage();
 		loginService.getIndex();
-		System.out.println(ticketResp);
 		BaseRequest baseRequest = new BaseRequest();
 		baseRequest.setDeviceID(loginService.getCookie("deviceID"));
 		baseRequest.setSid(loginService.getCookie("wxsid"));
 		baseRequest.setUin(loginService.getCookie("wxuin"));
 		baseRequest.setSkey(loginService.getCookie("skey"));
-		// {Uin: "xuin=904152460", Sid: "BLDwLSzy7U6N61QB", Skey: "", DeviceID:
-		// "e724272063629085"}
-		// System.out.println(JSONObject.fromObject(baseRequest));
 		InitResponse initResp = null;
 		String initRespStr = loginService.getWebwxInit(new InitRequest(baseRequest));
 		if (initRespStr == null || initRespStr.isEmpty())
@@ -83,7 +79,7 @@ public class LoginController {
 	@RequestMapping(value = "/wxinit")
 	@ResponseBody
 	public String getWebwxInit(HttpServletRequest request, HttpSession session) throws Exception {
-		loginService.getIndex();
+		loginService.getIndex2();
 		BaseRequest baseRequest = new BaseRequest();
 		baseRequest.setDeviceID(loginService.getCookie("deviceID"));
 		baseRequest.setSid(loginService.getCookie("wxsid"));
@@ -91,9 +87,8 @@ public class LoginController {
 		baseRequest.setSkey(loginService.getCookie("skey"));
 		// {Uin: "xuin=904152460", Sid: "BLDwLSzy7U6N61QB", Skey: "", DeviceID:
 		// "e724272063629085"}
-		System.out.println(new InitRequest(baseRequest));
 		InitResponse initResp = null;
-		String initRespStr = loginService.getWebwxInit(new InitRequest(baseRequest));
+		String initRespStr = "";//loginService.getWebwxInit(new InitRequest(baseRequest));
 		System.out.println(initRespStr);
 		if (initRespStr == null || initRespStr.isEmpty())
 			initResp = new InitResponse();
@@ -101,7 +96,12 @@ public class LoginController {
 			initResp = new InitResponse(initRespStr);
 		if (initResp.getUser() == null || initResp.getUser().getUserName() == null
 				|| initResp.getUser().getUserName().isEmpty()) {
-			initRespStr = loginService.getWebwxInit(new InitRequest(baseRequest));
+//			loginService.getIndex2();
+			baseRequest.setDeviceID(loginService.getCookie("deviceID"));
+			baseRequest.setSid(loginService.getCookie("wxsid"));
+			baseRequest.setUin(loginService.getCookie("wxuin"));
+			baseRequest.setSkey(loginService.getCookie("skey"));
+			initRespStr = loginService.getWebwx2Init(new InitRequest(baseRequest));
 			System.out.println(initRespStr);
 			if (initRespStr == null || initRespStr.isEmpty())
 				initResp = new InitResponse();

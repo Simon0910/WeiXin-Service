@@ -9,10 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 import org.apache.http.HttpException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.cookie.Cookie;
-import org.apache.http.impl.cookie.BasicClientCookie;
 import org.springframework.stereotype.Service;
 
 import com.young.weixin.common.httpclient.DefaultHTTPClient;
@@ -85,6 +88,15 @@ public class LoginService {
 		}
 	}
 
+	public void getIndex2() throws Exception {
+		String url = "https://wx2.qq.com";
+		HTTPRequest req = setPublicHeader(new HTTPRequest(HTTPMethod.GET, url));
+		try {
+			client.fetch(req);
+		} catch (URISyntaxException e) {
+			throw new RuntimeException("API url has been modified, current url: " + url);
+		}
+	}
 	public String getLoginCode() throws Exception {
 
 		getIndex();
@@ -125,31 +137,44 @@ public class LoginService {
 		}
 	}
 
+	public String getTime ()
+	{
+		ScriptEngineManager manager = new ScriptEngineManager();
+		ScriptEngine engine = manager.getEngineByName("javascript");
+		Object result = null ;
+		try {
+			result = engine.eval("~new Date");
+		} catch (ScriptException e) {
+			e.printStackTrace();
+
+		}
+		return String.valueOf(result);
+	}
 	public TicketResponse webwxnewloginpage() throws HttpException, IOException {
 		String loginCode = cookieMap.get("wxlid");
 		String url = "https://login.wx.qq.com/cgi-bin/mmwebwx-bin/login";
-		HTTPRequest req = setPublicHeader(new HTTPRequest(HTTPMethod.GET, url)).addQueryParameter("loginicon", "true")
-				.addQueryParameter("uuid", loginCode).addQueryParameter("tip", "0")
-				.addQueryParameter("r", "-1400307965")
+		HTTPRequest req = setPublicHeader(new HTTPRequest(HTTPMethod.GET, url))
+				.addQueryParameter("loginicon", "true")
+				.addQueryParameter("uuid", loginCode)
+				.addQueryParameter("tip", "0")
+				.addQueryParameter("r", getTime())
 				.addQueryParameter("_", String.valueOf(System.currentTimeMillis()))
 				.setConnectionTimeout(60 * 1000)
 				.setRequestTimeout(60 * 10000);
 		try {
 			String login_resp_str = client.fetch(req).body;
-			String redirect_uri_str = "https://login.wx.qq.com/cgi-bin/mmwebwx-bin/login";
+			String redirect_uri_str = "";
 			redirect_uri_str = login_resp_str.substring(
 					login_resp_str.indexOf("window.redirect_uri=\"") + "window.redirect_uri=\"".length(),
 					login_resp_str.length() - 2);
 			System.out.println(redirect_uri_str);
 			HTTPRequest req1 = setPublicHeader(new HTTPRequest(HTTPMethod.GET, redirect_uri_str))
-					.addQueryParameter("loginicon", "true").addQueryParameter("uuid", loginCode)
-					.addQueryParameter("tip", "0").addQueryParameter("r", "-1400307965")
-					.addQueryParameter("_", String.valueOf(System.currentTimeMillis())).setConnectionTimeout(60 * 1000)
+					.setConnectionTimeout(60 * 1000)
 					.setRequestTimeout(60 * 10000);
 			String xmlStr = client.fetch(req1).body;
-			System.out.println(xmlStr);
+			//System.out.println(xmlStr);
 			TicketResponse ticketResp = new TicketResponse(xmlStr);
-			ticketResp.setMessage(xmlStr);
+			//ticketResp.setMessage(xmlStr);
 			if (ticketResp.getSkey() != null && !ticketResp.getSkey().isEmpty())
 				cookieMap.put("skey", ticketResp.getSkey());
 			if (ticketResp.getWxsid() != null && !ticketResp.getWxsid().isEmpty())
@@ -158,6 +183,7 @@ public class LoginService {
 				cookieMap.put("wxuin", ticketResp.getWxuin());
 			if (ticketResp.getPass_ticket() != null && !ticketResp.getPass_ticket().isEmpty())
 				cookieMap.put("pass_ticket", ticketResp.getPass_ticket());
+			System.out.println(ticketResp);
 			return ticketResp;
 		} catch (URISyntaxException e) {
 			throw new RuntimeException("API url has been modified, current url: " + url);
@@ -170,7 +196,7 @@ public class LoginService {
 
 		String url = "https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit" ;
 		HTTPRequest req = setPublicHeader(new HTTPRequest(HTTPMethod.POST, url))
-				.addQueryParameter("r", "-1516162729")
+				.addQueryParameter("r", getTime())
 				.setBody(initRequest.toString())
 				.setConnectionTimeout(60 * 1000)
 				.setRequestTimeout(60 * 10000);
@@ -190,7 +216,7 @@ public class LoginService {
 		   //请求 URL: https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=1305844026
 		String url = "https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxinit" ;
 		HTTPRequest req = setPublicHeader(new HTTPRequest(HTTPMethod.POST, url))
-				.addQueryParameter("r", "-1516162729")
+				.addQueryParameter("r", System.currentTimeMillis())
 				.setBody(initRequest.toString())
 				.setConnectionTimeout(60 * 1000)
 				.setRequestTimeout(60 * 10000);

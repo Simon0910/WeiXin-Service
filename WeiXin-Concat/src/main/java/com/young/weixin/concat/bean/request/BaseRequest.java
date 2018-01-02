@@ -50,7 +50,19 @@ public class BaseRequest {
 		DeviceID = deviceID;
 	}
 
-	@Override
+	public JSONObject toJsonObject() {
+        JSONObject body = new JSONObject();
+        try {
+			body.put("Uin", Uin);
+			body.put("Sid", Sid);
+			body.put("Skey", Skey);
+			body.put("DeviceID", DeviceID);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return body;
+	}
 	public String toString() {
         JSONObject body = new JSONObject();
         try {

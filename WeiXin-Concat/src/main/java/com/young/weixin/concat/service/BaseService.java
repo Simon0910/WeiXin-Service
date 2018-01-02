@@ -25,7 +25,5 @@ public class BaseService {
 	{
 		CookieStore cs = cookieStore;
 		client = HttpClients.custom().setDefaultCookieStore(cs).build();
-			//client.wait(3000);
-	
 	}
 }

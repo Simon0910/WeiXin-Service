@@ -31,7 +31,7 @@ public class InitRequest {
 	public String toString() {
         JSONObject body = new JSONObject();
         try {
-			body.put("BaseRequest", BaseRequest.toString());
+			body.put("BaseRequest", BaseRequest.toJsonObject());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
