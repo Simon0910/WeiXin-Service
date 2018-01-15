@@ -49,7 +49,7 @@ public class LoginController {
 
 	}
 
-	@RequestMapping(value = "/send")
+	@RequestMapping(value = "/login")
 	@ResponseBody
 	public String test(HttpServletRequest request, HttpSession session) throws Exception {
 		TicketResponse ticketResp = loginService.webwxnewloginpage();

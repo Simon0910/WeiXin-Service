@@ -1,7 +1,7 @@
 package com.young.weixin.concat.test;
 
 public class TestBean {
-	private String Msg;
+	private String Msg = "xxx";
 
 	public String getMsg() {
 		return Msg;
